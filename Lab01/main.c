@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MAXSIZE 1000
+#define MAXSIZE 100
 
 //#define DEBUG
 #define TEST_HASH
@@ -88,19 +88,22 @@ int main(void){
 	
 	
 	/*MAIN CODE*/
-	char *user_input = (char *) malloc( (MAXSIZE + 1) * sizeof(char));
-	
+	char *user_input;
+	user_input = (char *) malloc( (MAXSIZE + 1) * sizeof(char));
+
 	printf("Please input a string (Less than %d characters)\n", MAXSIZE);
 
 	char c;
-	unsigned int len = 0;
+	int len = 0;
 	
 	while( len <= MAXSIZE && ((c = getchar()) != '\r') ){
-		printf("%c", c);
 		user_input[len ++] = c;
+		printf("%c", c);
 	}
-	user_input[len ++] = '/0';
-	//user_input = realloc(user_input, len * sizeof(char));
+	user_input[len ++] = '\0';
+	printf("\n");
+	
+	user_input = realloc(user_input, len * sizeof(char));
 	
 	printf("Your string is: %s\n", user_input);
 	
