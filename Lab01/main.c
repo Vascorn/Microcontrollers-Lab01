@@ -1,10 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "uart.h"
 
 #define MAXSIZE 1000
 
-#define DEBUG
+//#define DEBUG
 #define TEST_HASH
 #define TEST_DRF
 
@@ -87,11 +86,21 @@ int main(void){
 	
 	
 	
+	
 	/*MAIN CODE*/
-	char *user_input = (char *) malloc(MAXSIZE * sizeof(char));
+	char *user_input = (char *) malloc( (MAXSIZE + 1) * sizeof(char));
 	
 	printf("Please input a string (Less than %d characters)\n", MAXSIZE);
-	scanf("%s", user_input);
+
+	char c;
+	unsigned int len = 0;
+	
+	while( len <= MAXSIZE && ((c = getchar()) != '\r') ){
+		printf("%c", c);
+		user_input[len ++] = c;
+	}
+	user_input[len ++] = '/0';
+	//user_input = realloc(user_input, len * sizeof(char));
 	
 	printf("Your string is: %s\n", user_input);
 	
