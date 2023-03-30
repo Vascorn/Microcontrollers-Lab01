@@ -29,16 +29,16 @@ Build target 'Target 1'
 main.c(6): warning: // comments are not allowed in this language [-Wcomment]
 //#define DEBUG
 ^
-main.c(99): warning: implicit conversion loses integer precision: 'int' to 'char' [-Wimplicit-int-conversion]
+main.c(103): warning: implicit conversion loses integer precision: 'int' to 'char' [-Wimplicit-int-conversion]
         while( len <= MAXSIZE && ((c = getchar()) != '\r') ){
                                      ~ ^~~~~~~~~
 C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h(703): note: expanded from macro 'getchar'
     #define getchar() getc(stdin)
                       ^~~~~~~~~~~
-main.c(106): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+main.c(110): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
         user_input = realloc(user_input, len * sizeof(char));
                                          ^~~ ~
-main.c(96): warning: mixing declarations and code is a C99 extension [-Wdeclaration-after-statement]
+main.c(100): warning: mixing declarations and code is a C99 extension [-Wdeclaration-after-statement]
         char c;
              ^
 4 warnings generated.
@@ -93,7 +93,7 @@ Package Vendor: Keil
       Source file:   Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/arm/startup_stm32f411xe.s
       Source file:   MDK/Device/Source/ARM/STM32F4xx_OTP.s
       Source file:   Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/system_stm32f4xx.c
-Build Time Elapsed:  00:00:00
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

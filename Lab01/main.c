@@ -87,10 +87,14 @@ int main(void){
 	
 	
 	
+	
 	/*MAIN CODE*/
+	
+	//init user input
 	char *user_input;
 	user_input = (char *) malloc( (MAXSIZE + 1) * sizeof(char));
 
+	//read user input
 	printf("Please input a string (Less than %d characters)\n", MAXSIZE);
 
 	char c;
@@ -105,6 +109,7 @@ int main(void){
 	
 	user_input = realloc(user_input, len * sizeof(char));
 	
+	//start the process
 	printf("Your string is: %s\n", user_input);
 	
 	hash_result = hash(user_input, table);
@@ -113,6 +118,7 @@ int main(void){
 	drf_result = drootfactorial(hash_result);
 	printf("%d 's factorial of its digital root is: %d\n", hash_result, drf_result);
 	
+	//free memory
 	free(user_input);
 	
 	return 0;
