@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "uart.h"
+
 
 #define MAXSIZE 100
 
@@ -14,6 +16,9 @@ extern int hash(char* input, int* table);
 extern int drootfactorial(int num);
 
 int main(void){
+	//Initializing UART
+	uart_init(115200);
+	uart_enable();
 	
 	/*  Table of values for each character:
 	//	Letters : { a,  b,  c,  d,  e,  f,  g, 	h,  i,  j,  k,  l,  m,  n,  o,  p,  q,  r,  s,  t,  u,  v,  w,  x,  y,  z}																			*/
@@ -26,7 +31,7 @@ int main(void){
 	int i, ntests, npassed, exit = 0;
 		
 	#ifdef TEST_HASH
-	char *test_hash[] = {"VascoO Rizou 10021", "kprattis2001@ece.auth.gr", "ABCabc./*=&1", "T : 69***56483", "a55c66o77"};
+	char *test_hash[] = {"Vasc0o Rizou 10021", "kprattis2001@ece.auth.gr", "ABCabc./*=&1", "T : 69***56483", "a55c66o77"};
 	int 	ans_hash[] 	= {					241				 ,					593							,				63			 ,				-41			,				0			};
 	ntests = 5;
 	npassed = 0;
@@ -53,9 +58,9 @@ int main(void){
 	#endif
 	
 	#ifdef TEST_DRF
-	int  test_drf[] 	= {0, 			 9, 	1023, 	1427,  	 -61, 	4,294,967,294};			
+	int  test_drf[] 	= {0, 			 9, 	1023, 	1427,  	 -61, 	2};			
 	int 	ans_drf[] 	= {1, 	362880,	 	 720,	 	 120,		5040, 			2				 };
-	ntests = 5;
+	ntests = 6;
 	npassed = 0;
 	
 	printf("*************************** DRF TEST START (%d TESTS) ***************************\n", ntests);
@@ -110,14 +115,21 @@ int main(void){
 	user_input = realloc(user_input, len * sizeof(char));
 	
 	//start the process
+	
 	printf("Your string is: %s\n", user_input);
+	
 	
 	hash_result = hash(user_input, table);
 	printf("Hash result is: %d\n", hash_result);
 	
 	drf_result = drootfactorial(hash_result);
-	printf("%d 's factorial of its digital root is: %d\n", hash_result, drf_result);
+	printf("%d 's factorial of its digital root is: %d \n", hash_result, drf_result);
+	char result[9];
+	uart_print("My M4 calculates the answer... \r\n");
+	uart_print("The answer is: \r\n");
 	
+	sprintf(result, "%d \r\n", drf_result);
+	uart_print(result);
 	//free memory
 	free(user_input);
 	
