@@ -9,10 +9,10 @@
 #define TEST_HASH
 #define TEST_DRF
 
-/*calculate and return the hash of the input string given a table of values for each latin letter*/
+/*! \brief calculate and return the hash of the input string given a table of values for each latin letter */
 extern int hash(char* input, int* table);
 
-/*calculate and return the factorial of the digital root of a number*/
+/*! \brief calculate and return the factorial of the digital root of a number */
 extern int drootfactorial(int num);
 
 int main(void){
