@@ -1,0 +1,15 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+                       
+Command Line: --debug --xref --diag_suppress=9931,A1950W --cpu=Cortex-M4.fp.sp 
+--depend=.\objects\factorial.d -o.\objects\factorial.o -I.\RTE\_Target_1 -IC:\U
+sers\lazerradial\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include -IC
+:\Users\lazerradial\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.17.0\Drivers\C
+MSIS\Device\ST\STM32F4xx\Include --predefine="__UVISION_VERSION SETA 538" --pre
+define="_RTE_ SETA 1" --predefine="STM32F411xE SETA 1" --predefine="_RTE_ SETA 
+1" --list=.\listings\factorial.lst factorial.s
+333 symbols in table
