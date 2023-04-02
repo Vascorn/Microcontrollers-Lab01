@@ -2,7 +2,7 @@
 .p2align 2
 .type hash, %function
 	
-   /*! \brief 		calculates the hash of a given string.
+   /*! \brief 		calculates the hash of a given string, given an array A.
 	*  \param R0 	pointer to the string S to be hashed
 	*  \param R1  	pointer to the array A with the int hash value for every latin letter
 	*/
