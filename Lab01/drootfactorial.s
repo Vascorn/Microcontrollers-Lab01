@@ -17,7 +17,7 @@
 			RSBLT R0, R0, #0       // R0 <- 0 - R0; perfoms reverse order subtraction if R0 < 0
 			MOV R3, #0			   // Initializes R3 = 0. R3 stores 0 if the number of iterations is even, else 1 is stored
 		loop:
-			MOV R1, R0, LSR #3     // R1 <- round(R0 / 8). R1 holds the quatient (q) of the division R0 / 8
+			MOV R1, R0, LSR #3     // R1 <- floor(R0 / 8). R1 holds the quatient (q) of the division R0 / 8
 			SUB R2, R0, R1, LSL #3 // R2 <- R0 - R1*8. R2 holds the remainder (r) of the division R0 / 8
 			SUB R0, R2, R1         // R0 <- R2 - R1 (= r - q)
 			CMP R0, #0             // Compare R0 with 0
