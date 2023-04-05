@@ -20,7 +20,7 @@
 			IT LS                       // IT enabling thumb mode with LS condition for SUBLS
 			SUBLS R3, R3, R2            // if R2 <= 9; R3 -= R2 (subtract digit from result)
 			BLS loop                    // if R2 <= 9; continue
-			SUBS R2, R2, #49            // R2 = R2 - ('a' - '0')[=48] (map ['a'-'z']->[0-25]) && update flags
+			SUBS R2, R2, #49            // R2 = R2 - ('a' - '0')[=49] (map ['a'-'z']->[0-25]) && update flags
 			BLT loop                    // if R2 < 0; continue
 			CMP R2, #25                 // Compare R2 with 25
 			ITT LS                      // ITT enabling thumb mode with LS condition for LDRLS and ADDLS
