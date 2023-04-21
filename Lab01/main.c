@@ -128,6 +128,11 @@ int main(void){
 	uart_print("My M4 calculates the answer... \r\n");
 	uart_print("The answer is: \r\n");
 	
+	uart_print("Hash: ");
+	sprintf(result, "%d \r\n", hash_result);
+	uart_print(result);
+	
+	uart_print("Factorial of digital root: ");
 	sprintf(result, "%d \r\n", drf_result);
 	uart_print(result);
 	
